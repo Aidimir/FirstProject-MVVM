@@ -7,15 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3100BB1D77A0796FCE3855BE /* Pods_FirstProject_MVVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7792985167B62883BF69680A /* Pods_FirstProject_MVVMTests.framework */; };
+		6AE6AE588E34F88C658862B2 /* Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7938E92F16A8399D23CCC412 /* Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework */; };
+		9DAD623428005C5700577B6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DAD623328005C5700577B6A /* GoogleService-Info.plist */; };
+		9DAD623528005F2C00577B6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EFC2800520100364CAA /* ViewController.swift */; };
+		9DAD623628005F6000577B6A /* product_page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EFD2800520100364CAA /* product_page.swift */; };
+		9DAD623728005F6700577B6A /* products_page_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EFE2800520100364CAA /* products_page_controller.swift */; };
+		9DAD623828005F6B00577B6A /* bottom_sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EFF2800520100364CAA /* bottom_sheet.swift */; };
+		9DAD623928005F7300577B6A /* inside_collectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F002800520100364CAA /* inside_collectionView.swift */; };
+		9DAD623A28005F7300577B6A /* map_page_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F022800520100364CAA /* map_page_controller.swift */; };
+		9DAD623B28005F7300577B6A /* home_page_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F032800520100364CAA /* home_page_controller.swift */; };
+		9DAD623C28005F7300577B6A /* cart_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F012800520100364CAA /* cart_controller.swift */; };
+		9DAD623D28005F7800577B6A /* test_map_points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F072800520100364CAA /* test_map_points.swift */; };
+		9DAD624228005F7800577B6A /* firebase_data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F062800520100364CAA /* firebase_data.swift */; };
+		9DAD624328005F7800577B6A /* useful_methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F092800520100364CAA /* useful_methods.swift */; };
+		9DAD624428005F7E00577B6A /* all_products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F0F2800520100364CAA /* all_products.swift */; };
+		9DAD624528005F7E00577B6A /* products_in_cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F0E2800520100364CAA /* products_in_cart.swift */; };
+		9DAD624628005F8200577B6A /* presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F112800520200364CAA /* presenter.swift */; };
+		9DAD624728005F9600577B6A /* bottom_table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F172800520300364CAA /* bottom_table.swift */; };
+		9DAD624828005F9600577B6A /* bottom_tableView_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F142800520300364CAA /* bottom_tableView_cell.swift */; };
+		9DAD624A28005F9700577B6A /* map_bottom_button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F192800520300364CAA /* map_bottom_button.swift */; };
+		9DAD624D28005F9D00577B6A /* homePage_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F1B2800520300364CAA /* homePage_cell.swift */; };
+		9DAD624E28005F9D00577B6A /* main_page_sells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F1C2800520300364CAA /* main_page_sells.swift */; };
+		9DAD624F28005F9D00577B6A /* homePage_header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F1D2800520300364CAA /* homePage_header.swift */; };
+		9DAD625028005FA300577B6A /* custom_insideCollectionView_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F1F2800520300364CAA /* custom_insideCollectionView_cell.swift */; };
+		9DAD625128005FA300577B6A /* capacious_scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F222800520300364CAA /* capacious_scrollview.swift */; };
+		9DAD625328005FA300577B6A /* navigation_collectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F242800520300364CAA /* navigation_collectionCell.swift */; };
+		9DAD625528005FA300577B6A /* product_card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F212800520300364CAA /* product_card.swift */; };
+		9DAD625628005FA900577B6A /* cart_tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F272800520300364CAA /* cart_tableview.swift */; };
+		9DAD625728005FA900577B6A /* tableview_custom_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F282800520300364CAA /* tableview_custom_cell.swift */; };
+		9DAD625828005FA900577B6A /* tableView_header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9F262800520300364CAA /* tableView_header.swift */; };
 		9DEC9EC228002F1E00364CAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EC128002F1E00364CAA /* AppDelegate.swift */; };
 		9DEC9EC428002F1E00364CAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EC328002F1E00364CAA /* SceneDelegate.swift */; };
-		9DEC9EC628002F1E00364CAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EC528002F1E00364CAA /* ViewController.swift */; };
 		9DEC9EC928002F1E00364CAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DEC9EC728002F1E00364CAA /* Main.storyboard */; };
 		9DEC9ECB28002F1F00364CAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DEC9ECA28002F1F00364CAA /* Assets.xcassets */; };
 		9DEC9ECE28002F1F00364CAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DEC9ECC28002F1F00364CAA /* LaunchScreen.storyboard */; };
 		9DEC9ED928002F1F00364CAA /* FirstProject_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9ED828002F1F00364CAA /* FirstProject_MVVMTests.swift */; };
 		9DEC9EE328002F1F00364CAA /* FirstProject_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EE228002F1F00364CAA /* FirstProject_MVVMUITests.swift */; };
 		9DEC9EE528002F1F00364CAA /* FirstProject_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC9EE428002F1F00364CAA /* FirstProject_MVVMUITestsLaunchTests.swift */; };
+		D36CC90942CB023260B67BBD /* Pods_FirstProject_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6FAFFFCBF3C3567038011C /* Pods_FirstProject_MVVM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +66,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183EBECE807643982EF5709E /* Pods-FirstProject-MVVMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVMTests.release.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVMTests/Pods-FirstProject-MVVMTests.release.xcconfig"; sourceTree = "<group>"; };
+		41371E5A68B94455FBA24A9F /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVM-FirstProject-MVVMUITests.debug.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		67228E1A1DBDE1CD5C1A20FC /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVM-FirstProject-MVVMUITests.release.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7792985167B62883BF69680A /* Pods_FirstProject_MVVMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirstProject_MVVMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7938E92F16A8399D23CCC412 /* Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DAD623328005C5700577B6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9DEC9EBE28002F1E00364CAA /* FirstProject-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FirstProject-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEC9EC128002F1E00364CAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DEC9EC328002F1E00364CAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9DEC9EC528002F1E00364CAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DEC9EC828002F1E00364CAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DEC9ECA28002F1F00364CAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DEC9ECD28002F1F00364CAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +84,37 @@
 		9DEC9EDE28002F1F00364CAA /* FirstProject-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FirstProject-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEC9EE228002F1F00364CAA /* FirstProject_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstProject_MVVMUITests.swift; sourceTree = "<group>"; };
 		9DEC9EE428002F1F00364CAA /* FirstProject_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstProject_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DEC9EFC2800520100364CAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DEC9EFD2800520100364CAA /* product_page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product_page.swift; sourceTree = "<group>"; };
+		9DEC9EFE2800520100364CAA /* products_page_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = products_page_controller.swift; sourceTree = "<group>"; };
+		9DEC9EFF2800520100364CAA /* bottom_sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottom_sheet.swift; sourceTree = "<group>"; };
+		9DEC9F002800520100364CAA /* inside_collectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inside_collectionView.swift; sourceTree = "<group>"; };
+		9DEC9F012800520100364CAA /* cart_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cart_controller.swift; sourceTree = "<group>"; };
+		9DEC9F022800520100364CAA /* map_page_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = map_page_controller.swift; sourceTree = "<group>"; };
+		9DEC9F032800520100364CAA /* home_page_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home_page_controller.swift; sourceTree = "<group>"; };
+		9DEC9F062800520100364CAA /* firebase_data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebase_data.swift; sourceTree = "<group>"; };
+		9DEC9F072800520100364CAA /* test_map_points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_map_points.swift; sourceTree = "<group>"; };
+		9DEC9F092800520100364CAA /* useful_methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = useful_methods.swift; sourceTree = "<group>"; };
+		9DEC9F0E2800520100364CAA /* products_in_cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = products_in_cart.swift; sourceTree = "<group>"; };
+		9DEC9F0F2800520100364CAA /* all_products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_products.swift; sourceTree = "<group>"; };
+		9DEC9F112800520200364CAA /* presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = presenter.swift; sourceTree = "<group>"; };
+		9DEC9F142800520300364CAA /* bottom_tableView_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottom_tableView_cell.swift; sourceTree = "<group>"; };
+		9DEC9F172800520300364CAA /* bottom_table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottom_table.swift; sourceTree = "<group>"; };
+		9DEC9F192800520300364CAA /* map_bottom_button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = map_bottom_button.swift; sourceTree = "<group>"; };
+		9DEC9F1B2800520300364CAA /* homePage_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage_cell.swift; sourceTree = "<group>"; };
+		9DEC9F1C2800520300364CAA /* main_page_sells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_page_sells.swift; sourceTree = "<group>"; };
+		9DEC9F1D2800520300364CAA /* homePage_header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage_header.swift; sourceTree = "<group>"; };
+		9DEC9F1F2800520300364CAA /* custom_insideCollectionView_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = custom_insideCollectionView_cell.swift; sourceTree = "<group>"; };
+		9DEC9F212800520300364CAA /* product_card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product_card.swift; sourceTree = "<group>"; };
+		9DEC9F222800520300364CAA /* capacious_scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = capacious_scrollview.swift; sourceTree = "<group>"; };
+		9DEC9F242800520300364CAA /* navigation_collectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigation_collectionCell.swift; sourceTree = "<group>"; };
+		9DEC9F262800520300364CAA /* tableView_header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableView_header.swift; sourceTree = "<group>"; };
+		9DEC9F272800520300364CAA /* cart_tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cart_tableview.swift; sourceTree = "<group>"; };
+		9DEC9F282800520300364CAA /* tableview_custom_cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableview_custom_cell.swift; sourceTree = "<group>"; };
+		A81866E93A135A10CCBCFB1E /* Pods-FirstProject-MVVMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVMTests.debug.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVMTests/Pods-FirstProject-MVVMTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE6FAFFFCBF3C3567038011C /* Pods_FirstProject_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirstProject_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0EA58C091AE3DB0D7BE22B7 /* Pods-FirstProject-MVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVM.debug.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM.debug.xcconfig"; sourceTree = "<group>"; };
+		F226DC5EC24F971DB60EEB42 /* Pods-FirstProject-MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstProject-MVVM.release.xcconfig"; path = "Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36CC90942CB023260B67BBD /* Pods_FirstProject_MVVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3100BB1D77A0796FCE3855BE /* Pods_FirstProject_MVVMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +138,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE6AE588E34F88C658862B2 /* Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8120F0AC9B0A91871630E5BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE6FAFFFCBF3C3567038011C /* Pods_FirstProject_MVVM.framework */,
+				7938E92F16A8399D23CCC412 /* Pods_FirstProject_MVVM_FirstProject_MVVMUITests.framework */,
+				7792985167B62883BF69680A /* Pods_FirstProject_MVVMTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9DEC9EB528002F1D00364CAA = {
 			isa = PBXGroup;
 			children = (
+				9DAD623328005C5700577B6A /* GoogleService-Info.plist */,
 				9DEC9EC028002F1E00364CAA /* FirstProject-MVVM */,
 				9DEC9ED728002F1F00364CAA /* FirstProject-MVVMTests */,
 				9DEC9EE128002F1F00364CAA /* FirstProject-MVVMUITests */,
 				9DEC9EBF28002F1E00364CAA /* Products */,
+				D8FC3DB1067547292BF82471 /* Pods */,
+				8120F0AC9B0A91871630E5BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +181,12 @@
 		9DEC9EC028002F1E00364CAA /* FirstProject-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				9DEC9EFB2800520100364CAA /* Controllers */,
+				9DEC9F052800520100364CAA /* Models */,
+				9DEC9F102800520200364CAA /* presenters */,
+				9DEC9F122800520300364CAA /* Views */,
 				9DEC9EC128002F1E00364CAA /* AppDelegate.swift */,
 				9DEC9EC328002F1E00364CAA /* SceneDelegate.swift */,
-				9DEC9EC528002F1E00364CAA /* ViewController.swift */,
 				9DEC9EC728002F1E00364CAA /* Main.storyboard */,
 				9DEC9ECA28002F1F00364CAA /* Assets.xcassets */,
 				9DEC9ECC28002F1F00364CAA /* LaunchScreen.storyboard */,
@@ -127,6 +212,114 @@
 			path = "FirstProject-MVVMUITests";
 			sourceTree = "<group>";
 		};
+		9DEC9EFB2800520100364CAA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9EFC2800520100364CAA /* ViewController.swift */,
+				9DEC9EFD2800520100364CAA /* product_page.swift */,
+				9DEC9EFE2800520100364CAA /* products_page_controller.swift */,
+				9DEC9EFF2800520100364CAA /* bottom_sheet.swift */,
+				9DEC9F002800520100364CAA /* inside_collectionView.swift */,
+				9DEC9F012800520100364CAA /* cart_controller.swift */,
+				9DEC9F022800520100364CAA /* map_page_controller.swift */,
+				9DEC9F032800520100364CAA /* home_page_controller.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9DEC9F052800520100364CAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F062800520100364CAA /* firebase_data.swift */,
+				9DEC9F072800520100364CAA /* test_map_points.swift */,
+				9DEC9F092800520100364CAA /* useful_methods.swift */,
+				9DEC9F0D2800520100364CAA /* products_in_cart */,
+				9DEC9F0F2800520100364CAA /* all_products.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DEC9F0D2800520100364CAA /* products_in_cart */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F0E2800520100364CAA /* products_in_cart.swift */,
+			);
+			path = products_in_cart;
+			sourceTree = "<group>";
+		};
+		9DEC9F102800520200364CAA /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F112800520200364CAA /* presenter.swift */,
+			);
+			path = presenters;
+			sourceTree = "<group>";
+		};
+		9DEC9F122800520300364CAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F132800520300364CAA /* map_page */,
+				9DEC9F1A2800520300364CAA /* home_page */,
+				9DEC9F1E2800520300364CAA /* products_page */,
+				9DEC9F252800520300364CAA /* cart_page */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DEC9F132800520300364CAA /* map_page */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F142800520300364CAA /* bottom_tableView_cell.swift */,
+				9DEC9F172800520300364CAA /* bottom_table.swift */,
+				9DEC9F192800520300364CAA /* map_bottom_button.swift */,
+			);
+			path = map_page;
+			sourceTree = "<group>";
+		};
+		9DEC9F1A2800520300364CAA /* home_page */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F1B2800520300364CAA /* homePage_cell.swift */,
+				9DEC9F1C2800520300364CAA /* main_page_sells.swift */,
+				9DEC9F1D2800520300364CAA /* homePage_header.swift */,
+			);
+			path = home_page;
+			sourceTree = "<group>";
+		};
+		9DEC9F1E2800520300364CAA /* products_page */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F1F2800520300364CAA /* custom_insideCollectionView_cell.swift */,
+				9DEC9F212800520300364CAA /* product_card.swift */,
+				9DEC9F222800520300364CAA /* capacious_scrollview.swift */,
+				9DEC9F242800520300364CAA /* navigation_collectionCell.swift */,
+			);
+			path = products_page;
+			sourceTree = "<group>";
+		};
+		9DEC9F252800520300364CAA /* cart_page */ = {
+			isa = PBXGroup;
+			children = (
+				9DEC9F262800520300364CAA /* tableView_header.swift */,
+				9DEC9F272800520300364CAA /* cart_tableview.swift */,
+				9DEC9F282800520300364CAA /* tableview_custom_cell.swift */,
+			);
+			path = cart_page;
+			sourceTree = "<group>";
+		};
+		D8FC3DB1067547292BF82471 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0EA58C091AE3DB0D7BE22B7 /* Pods-FirstProject-MVVM.debug.xcconfig */,
+				F226DC5EC24F971DB60EEB42 /* Pods-FirstProject-MVVM.release.xcconfig */,
+				41371E5A68B94455FBA24A9F /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.debug.xcconfig */,
+				67228E1A1DBDE1CD5C1A20FC /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.release.xcconfig */,
+				A81866E93A135A10CCBCFB1E /* Pods-FirstProject-MVVMTests.debug.xcconfig */,
+				183EBECE807643982EF5709E /* Pods-FirstProject-MVVMTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +327,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DEC9EE828002F1F00364CAA /* Build configuration list for PBXNativeTarget "FirstProject-MVVM" */;
 			buildPhases = (
+				B84F9D68A41C2FF5D846856A /* [CP] Check Pods Manifest.lock */,
 				9DEC9EBA28002F1E00364CAA /* Sources */,
 				9DEC9EBB28002F1E00364CAA /* Frameworks */,
 				9DEC9EBC28002F1E00364CAA /* Resources */,
+				427930A613460786BF4EA517 /* [CP] Embed Pods Frameworks */,
+				0492EBD1754CF1F0AA6A8C2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -151,6 +347,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DEC9EEB28002F1F00364CAA /* Build configuration list for PBXNativeTarget "FirstProject-MVVMTests" */;
 			buildPhases = (
+				EABE40E07CA47E0664B7F177 /* [CP] Check Pods Manifest.lock */,
 				9DEC9ED028002F1F00364CAA /* Sources */,
 				9DEC9ED128002F1F00364CAA /* Frameworks */,
 				9DEC9ED228002F1F00364CAA /* Resources */,
@@ -169,9 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DEC9EEE28002F1F00364CAA /* Build configuration list for PBXNativeTarget "FirstProject-MVVMUITests" */;
 			buildPhases = (
+				193CB13AC6CD85BB22E64F19 /* [CP] Check Pods Manifest.lock */,
 				9DEC9EDA28002F1F00364CAA /* Sources */,
 				9DEC9EDB28002F1F00364CAA /* Frameworks */,
 				9DEC9EDC28002F1F00364CAA /* Resources */,
+				4737E9BC214A208B72601791 /* [CP] Embed Pods Frameworks */,
+				52AE26E6CA8207397CE7DC1F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DEC9ECE28002F1F00364CAA /* LaunchScreen.storyboard in Resources */,
+				9DAD623428005C5700577B6A /* GoogleService-Info.plist in Resources */,
 				9DEC9ECB28002F1F00364CAA /* Assets.xcassets in Resources */,
 				9DEC9EC928002F1E00364CAA /* Main.storyboard in Resources */,
 			);
@@ -253,14 +454,177 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0492EBD1754CF1F0AA6A8C2A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		193CB13AC6CD85BB22E64F19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		427930A613460786BF4EA517 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM/Pods-FirstProject-MVVM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4737E9BC214A208B72601791 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52AE26E6CA8207397CE7DC1F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirstProject-MVVM-FirstProject-MVVMUITests/Pods-FirstProject-MVVM-FirstProject-MVVMUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B84F9D68A41C2FF5D846856A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstProject-MVVM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EABE40E07CA47E0664B7F177 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirstProject-MVVMTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9DEC9EBA28002F1E00364CAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DEC9EC628002F1E00364CAA /* ViewController.swift in Sources */,
+				9DAD624428005F7E00577B6A /* all_products.swift in Sources */,
+				9DAD624628005F8200577B6A /* presenter.swift in Sources */,
+				9DAD623928005F7300577B6A /* inside_collectionView.swift in Sources */,
+				9DAD623A28005F7300577B6A /* map_page_controller.swift in Sources */,
+				9DAD625728005FA900577B6A /* tableview_custom_cell.swift in Sources */,
+				9DAD624528005F7E00577B6A /* products_in_cart.swift in Sources */,
+				9DAD623728005F6700577B6A /* products_page_controller.swift in Sources */,
+				9DAD624D28005F9D00577B6A /* homePage_cell.swift in Sources */,
+				9DAD625328005FA300577B6A /* navigation_collectionCell.swift in Sources */,
+				9DAD624728005F9600577B6A /* bottom_table.swift in Sources */,
+				9DAD625528005FA300577B6A /* product_card.swift in Sources */,
+				9DAD624E28005F9D00577B6A /* main_page_sells.swift in Sources */,
+				9DAD625628005FA900577B6A /* cart_tableview.swift in Sources */,
+				9DAD625128005FA300577B6A /* capacious_scrollview.swift in Sources */,
+				9DAD623528005F2C00577B6A /* ViewController.swift in Sources */,
 				9DEC9EC228002F1E00364CAA /* AppDelegate.swift in Sources */,
+				9DAD625028005FA300577B6A /* custom_insideCollectionView_cell.swift in Sources */,
+				9DAD624328005F7800577B6A /* useful_methods.swift in Sources */,
+				9DAD623B28005F7300577B6A /* home_page_controller.swift in Sources */,
+				9DAD624228005F7800577B6A /* firebase_data.swift in Sources */,
+				9DAD624A28005F9700577B6A /* map_bottom_button.swift in Sources */,
+				9DAD625828005FA900577B6A /* tableView_header.swift in Sources */,
+				9DAD623628005F6000577B6A /* product_page.swift in Sources */,
+				9DAD623828005F6B00577B6A /* bottom_sheet.swift in Sources */,
+				9DAD624F28005F9D00577B6A /* homePage_header.swift in Sources */,
 				9DEC9EC428002F1E00364CAA /* SceneDelegate.swift in Sources */,
+				9DAD624828005F9600577B6A /* bottom_tableView_cell.swift in Sources */,
+				9DAD623C28005F7300577B6A /* cart_controller.swift in Sources */,
+				9DAD623D28005F7800577B6A /* test_map_points.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +796,7 @@
 		};
 		9DEC9EE928002F1F00364CAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0EA58C091AE3DB0D7BE22B7 /* Pods-FirstProject-MVVM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,6 +825,7 @@
 		};
 		9DEC9EEA28002F1F00364CAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F226DC5EC24F971DB60EEB42 /* Pods-FirstProject-MVVM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +854,7 @@
 		};
 		9DEC9EEC28002F1F00364CAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A81866E93A135A10CCBCFB1E /* Pods-FirstProject-MVVMTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +875,7 @@
 		};
 		9DEC9EED28002F1F00364CAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 183EBECE807643982EF5709E /* Pods-FirstProject-MVVMTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +896,7 @@
 		};
 		9DEC9EEF28002F1F00364CAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41371E5A68B94455FBA24A9F /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +915,7 @@
 		};
 		9DEC9EF028002F1F00364CAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67228E1A1DBDE1CD5C1A20FC /* Pods-FirstProject-MVVM-FirstProject-MVVMUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
