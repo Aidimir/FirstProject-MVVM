@@ -10,14 +10,14 @@ import UIKit
 import SwiftUI
 
 class ProductCard : UIView{
-    var screenWidth = UIScreen.main.bounds.width
-    var screenHeight = UIScreen.main.bounds.height
+    private var screenWidth = UIScreen.main.bounds.width
+    private var screenHeight = UIScreen.main.bounds.height
     var name : String
     var image : UIImage
     var shortDescription : String
-    var destinationPage : UIViewController
+    var destinationPage : UIViewController?
     var price : Int
-    var view = UIView()
+    private var view = UIView()
     init(name : String, image : UIImage, shortdescription : String,frame : CGRect, destinationPage : UIViewController , price : Int){
         self.name = name
         self.image = image
@@ -86,23 +86,13 @@ class ProductCard : UIView{
     }
     @objc func onTap(){
         let controller = getCurrentViewController()
-        controller?.present(destinationPage, animated: true, completion: nil)
+        controller?.present(destinationPage ?? EmptyController(), animated: true, completion: nil)
     }
-    func attachTo(what : UIView, toWhat : UIView , multiplier : Double){
-        what.translatesAutoresizingMaskIntoConstraints = false
-        what.leftAnchor.constraint(equalTo: toWhat.leftAnchor).isActive = true
-        what.topAnchor.constraint(equalTo: toWhat.bottomAnchor).isActive = true
-        what.widthAnchor.constraint(equalTo: toWhat.widthAnchor).isActive = true
-        what.heightAnchor.constraint(equalTo: heightAnchor, multiplier: multiplier).isActive = true
+    private func getImages(images : [String]){
+        
     }
 }
 
-extension UIView
-{
-    func copyView<T: UIView>() -> T {
-        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
-    }
-}
 
 func getCurrentViewController() -> UIViewController? {
     

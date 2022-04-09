@@ -60,6 +60,6 @@ class TableView : UITableViewController{
     func didSelect(productName : String){
         let controller = getCurrentViewController()
         let thePage = allProducts[productName]
-        controller?.present(thePage!.destinationPage, animated: true, completion: nil)
+        controller?.present(thePage!.destinationPage ?? EmptyController(), animated: true, completion: nil)
     }
 }

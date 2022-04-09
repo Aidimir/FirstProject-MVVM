@@ -10,7 +10,7 @@ import UIKit
 class InsideCollectionView : UICollectionViewController {
     var cards : Array<ProductCard>
     var name : String
-    init(frame : CGRect,cards : Array<ProductCard>, name : String){
+    init(cards : Array<ProductCard>, name : String){
         self.cards = cards
         self.name = name
         super.init(collectionViewLayout: UICollectionViewFlowLayout())

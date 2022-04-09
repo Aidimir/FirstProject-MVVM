@@ -1,18 +1,93 @@
 import UIKit
 import Kingfisher
 import SnapKit
-class ViewController : UITabBarController, ProductsPresenterDelegate {
-    func presentProducts(dict: Dictionary<String, Array<ProductCard>>, allPoints : [Point]) {
+class ViewController : UIViewController {
+    private let spinner = UIActivityIndicatorView()
+    public static var productsArray : Observable<[ProductData]?> = Observable(value: nil)
+    let button : UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(updateValue), for: .touchUpInside)
+        button.backgroundColor = .red
+        return button
+    }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(spinner)
+        view.backgroundColor = .black
+        spinner.tintColor = .white
+        spinner.startAnimating()
+        spinner.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        fetchData()
+    }
+    @objc func reloadAll(sender : UIRefreshControl){
+        view.subviews.forEach({ $0 != spinner ? $0.removeFromSuperview() : nil})
+        fetchData()
+    }
+    func fetchData(){
+        FirebaseData().getData { dict in
+            if dict != nil{
+                FirebaseData().getPoints { p in
+                    let array = convertToProductData(dict: dict!)
+                    if ViewController.productsArray.value == nil{
+                        ViewController.productsArray.value = array
+                        self.presentProducts(array: array, allPoints: p)
+                    }
+                    ViewController.productsArray.value = array
+                }
+            }
+            else{
+                // some cache stuff will be here
+                self.errorHandler()
+            }
+        }
+    }
+    @objc func updateValue(){
+        FirebaseData().getData { dict in
+            if dict != nil{
+                let array = convertToProductData(dict: dict!)
+                FirebaseData().getPoints { p in
+                    ViewController.productsArray.value = array
+                }
+                print(dict)
+            }
+            else{
+                // some cache stuff will be here
+                ViewController.productsArray.value = nil
+                print("is nil")
+            }
+        }
+        print("update button tapped")
+    }
+}
+
+extension ViewController : ProductsPresenterDelegate{
+    func presentProducts(array : [ProductData] , allPoints : [Point]) {
         spinner.removeFromSuperview()
+        let dict = ProductConstructor.presentData(products: array)
         let home = HomeViewController(itemsToShow: getNewInstances(array: getRandomPos(dict: dict)))
         let productsPage = ProductsPageController(dict: dict)
         let mapPage = MapPageController()
         mapPage.allPoints = allPoints
         let cartPage = CartController(dict: dict)
         let pages = [home,productsPage,mapPage,cartPage]
-        self.setViewControllers(pages, animated: true)
-        self.selectedViewController = pages[0]
-        tabBar.backgroundColor = .gray
+        let tabBar = UITabBarController()
+        tabBar.setViewControllers(pages, animated: true)
+        tabBar.selectedViewController = pages[0]
+        tabBar.tabBar.backgroundColor = .gray
+        addChild(tabBar)
+        didMove(toParent: self)
+        view.addSubview(tabBar.view)
+        tabBar.view.snp.makeConstraints { make in
+            make.bottom.left.right.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.centerX.topMargin.width.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(10)
+        }
     }
     func errorHandler() {
         spinner.removeFromSuperview()
@@ -39,6 +114,7 @@ class ViewController : UITabBarController, ProductsPresenterDelegate {
             control.tintColor = .white
             return control
         }()
+        scroll.refreshControl = refreshControl
         scroll.addSubview(errorImvView)
         errorImvView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -49,48 +125,10 @@ class ViewController : UITabBarController, ProductsPresenterDelegate {
             make.left.right.width.equalToSuperview()
             make.bottom.equalTo(errorImvView.snp.top)
         }
-        scroll.refreshControl = refreshControl
         scroll.backgroundColor = .black
         view.addSubview(scroll)
         scroll.snp.makeConstraints { make in
             make.left.right.top.bottom.width.height.equalToSuperview()
         }
     }
-    private let spinner = UIActivityIndicatorView()
-    private let presenter = ProductsPresenter()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(spinner)
-        spinner.tintColor = .white
-        spinner.startAnimating()
-        spinner.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        presenter.setDelegate(delegate: self)
-        presenter.fetchData()
-    }
-    @objc func reloadAll(sender : UIRefreshControl){
-        view.subviews.forEach({ $0.removeFromSuperview() })
-        presenter.fetchData()
-    }
-    func getRandomPos(dict : [String:[ProductCard]]) -> [ProductCard]{
-        var res = [ProductCard]()
-        for i in 0...3{
-            var randomEl = dict["all"]!.randomElement()
-            if res.contains(randomEl!) == false{
-                res.append(randomEl!)
-            }
-        }
-        return res
-    }
-    func getNewInstances(array : [ProductCard]) ->[ProductCard]{
-        var res = [ProductCard]()
-        for i in array{
-            res.append(ProductCard(name: i.name, image: i.image, shortdescription: i.shortDescription, frame: i.frame, destinationPage: i.destinationPage, price: i.price))
-        }
-        return res
-    }
 }
-
-
-

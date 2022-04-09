@@ -7,11 +7,12 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CapaciousScrollView : UIViewController,UIScrollViewDelegate{
     var groups : Dictionary<String,Array<ProductCard>>
-    let massiveView : UIView = UIView()
-    let scrollView : UIScrollView = UIScrollView()
+    private var massiveView : UIView = UIView()
+    private var scrollView : UIScrollView = UIScrollView()
     let stackView : UIStackView = {
         let stack = UIStackView(frame: .zero)
         stack.axis = .horizontal
@@ -19,7 +20,12 @@ class CapaciousScrollView : UIViewController,UIScrollViewDelegate{
         return stack
     }()
     func setup(){
+        scrollView = UIScrollView()
+        massiveView = UIView()
         scrollView.backgroundColor = .black
+        for i in stackView.arrangedSubviews{
+            stackView.removeArrangedSubview(i)
+        }
         let a = createCollections(groups: groups)
         for i in a{
             i.view.frame = view.bounds
@@ -55,14 +61,24 @@ class CapaciousScrollView : UIViewController,UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        addBinding()
     }
-}
-func createCollections(groups : Dictionary<String,Array<ProductCard>>)-> Array<InsideCollectionView>{
-    var collections = [InsideCollectionView]()
-    for (key,value) in groups.sorted{$0.0<$1.0}{
-        var i = InsideCollectionView(frame: .zero, cards: value, name: key)
-        collections.append(i)
-        print(key,value.count)
+    func createCollections(groups : Dictionary<String,Array<ProductCard>>)-> Array<InsideCollectionView>{
+        var collections = [InsideCollectionView]()
+        for (key,value) in groups.sorted(by: {$0.0<$1.0}){
+            let i = InsideCollectionView(cards: value ,name: key )
+            collections.append(i)
+            print(key,value.count)
+        }
+        return collections
     }
-    return collections
+    private func addBinding(){
+        ViewController.productsArray.bind { array in
+            DispatchQueue.main.async {
+                self.scrollView.removeFromSuperview()
+                self.groups = ProductConstructor.presentData(products: array!)
+                self.setup()
+            }
+        }
+    }
 }

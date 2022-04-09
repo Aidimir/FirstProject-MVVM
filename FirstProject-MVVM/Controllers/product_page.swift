@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct Page : View{
-    var images : Array<Image>
+    var images : Array<UIImage>
     var mainImg : UIImage
     var productName : String
     var description : String
@@ -25,7 +25,7 @@ struct Page : View{
                         .padding(Edge.Set.leading,geometry.size.width*0.02)
         TabView{
             ForEach(0..<images.count){ num in
-                images[num]
+                Image(uiImage: images[num])
                     .resizable()
                     .scaledToFit()
                     .shadow(color: .black.opacity(0.6), radius: 20, x: 20, y: 10)

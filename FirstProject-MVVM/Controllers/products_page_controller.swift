@@ -12,7 +12,7 @@ import SwiftUI
 class ProductsPageController : UIViewController {
     var dict: Dictionary<String, Array<ProductCard>>
     
-    let spinner = UIActivityIndicatorView()
+    private let spinner = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.startAnimating()
@@ -24,7 +24,7 @@ class ProductsPageController : UIViewController {
         addChild(scrollView)
         scrollView.didMove(toParent: self)
         self.view.addSubview(scrollView.view)
-        self.setup(scrollView: scrollView.view,view: self.view)
+        setup(scrollView: scrollView.view,view: self.view)
         allProducts = getAllProudctInOneDict(dict: dict)
         self.spinner.stopAnimating()
         self.spinner.removeFromSuperview()
@@ -36,7 +36,8 @@ class ProductsPageController : UIViewController {
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
-    init(dict: Dictionary<String, Array<ProductCard>>){
+    init(dict: Dictionary<String, Array<ProductCard>>
+){
         self.dict = dict
         super.init(nibName: nil, bundle: nil)
     }

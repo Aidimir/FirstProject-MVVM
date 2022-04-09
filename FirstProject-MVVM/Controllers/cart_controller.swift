@@ -37,10 +37,16 @@ class CartController : UIViewController {
             make.height.equalToSuperview().multipliedBy(0.8)
         }
         let data = UserDefaults.standard.array(forKey: "cart") as? [String] ?? []
-        var allProductsDict = getAllProudctInOneDict(dict: dict)
+        var allProductsDict = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: ViewController.productsArray.value!))
         allProducts = allProductsDict
+        var allValues = [String]()
+        for (key,value) in allProducts{
+            allValues.append(value.name)
+        }
         for i in data{
+            if allValues.contains(i){
             cart.append(allProducts[i]!)
+            }
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         button = createButton()

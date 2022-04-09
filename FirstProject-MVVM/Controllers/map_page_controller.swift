@@ -51,7 +51,7 @@ class MapPageController : UIViewController, YMKMapObjectTapListener {
             
         }
         map.move(
-            with: YMKCameraPosition(target: points[0].pointOnMap, zoom: 10, azimuth: 0, tilt: 0),
+            with: YMKCameraPosition(target: points.isEmpty == false ? points[0].pointOnMap : defaultLocation , zoom: 10, azimuth: 0, tilt: 0),
             animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 3),
             cameraCallback: nil)
         map.setMapStyleWithStyle(style)
