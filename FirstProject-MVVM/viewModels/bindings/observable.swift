@@ -8,17 +8,20 @@
 import Foundation
 
 class Observable<T> {
-    private var listener : ((T) -> Void)?
-    func bind(_ listener : ((T) -> Void)?){
-        listener?(value)
-        self.listener = listener
+    typealias Listener = (T) -> ()
+    private var listeners: [Listener] = []
+    init(_ v: T) {
+        value = v
     }
-    var value : T {
-        didSet{
-            listener?(value)
-        }
+    var value: T {
+        didSet {
+            for l in listeners { l(value) } }
     }
-    init(value : T){
-        self.value = value
+    func bind(l: @escaping Listener) {
+        listeners.append(l)
+        l(value)
+    }
+    func addListener(l: @escaping Listener) {
+        listeners.append(l)
     }
 }

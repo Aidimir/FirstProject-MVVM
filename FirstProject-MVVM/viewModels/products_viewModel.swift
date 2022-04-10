@@ -16,8 +16,8 @@ protocol ProductsPresenterDelegate{
 typealias delegateType = ProductsPresenterDelegate & UIViewController
 
 class ProductsViewModel{
-    public static var productsArray : Observable<[ProductData]?> = Observable(value: nil)
-    public static var allPoints : Observable<[Point]?> = Observable(value: nil)
+    public static var productsArray : Observable<[ProductData]?> = Observable(nil)
+    public static var allPoints : Observable<[Point]?> = Observable(nil)
     static var delegate : delegateType?
     func setDelegate(delegate : delegateType){
         ProductsViewModel.delegate = delegate

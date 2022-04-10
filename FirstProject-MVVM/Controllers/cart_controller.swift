@@ -26,16 +26,9 @@ class CartController : UIViewController {
         super.viewDidLoad()
         label.font = .boldSystemFont(ofSize: 30)
         label.adjustsFontSizeToFitWidth = true
-        addChild(tableView)
-        tableView.didMove(toParent: self)
         SKPaymentQueue.default().add(self)
         fetchProducts()
-        view.backgroundColor = .black
-        view.addSubview(tableView.view)
-        tableView.view.snp.makeConstraints { make in
-            make.left.right.top.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.8)
-        }
+        setupTableView()
         let data = UserDefaults.standard.array(forKey: "cart") as? [String] ?? []
         allProducts = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: ProductsViewModel.productsArray.value!))
         var allValues = [String]()
@@ -44,7 +37,7 @@ class CartController : UIViewController {
         }
         for i in data{
             if allValues.contains(i){
-            cart.append(allProducts[i]!)
+                cart.append(allProducts[i]!)
             }
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -139,10 +132,40 @@ extension CartController : SKPaymentTransactionObserver, SKProductsRequestDelega
     }
     func addBinding(){
         ProductsViewModel.productsArray.bind { array in
-            allProducts = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: array!))
+            DispatchQueue.main.async {
+                allProducts = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: array!))
+                self.reloadCart()
+            }
         }
-        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name("reloadPrice"), object: nil)
+    }
+}
 
+extension CartController{
+    func setupTableView(){
+        tableView.removeFromParent()
+        tableView = TableView()
+        addChild(tableView)
+        tableView.didMove(toParent: self)
+        view.backgroundColor = .black
+        view.addSubview(tableView.view)
+        tableView.view.snp.makeConstraints { make in
+            make.left.right.top.width.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.8)
+        }
+    }
+    func reloadCart(){
+        var allValues = [String]()
+        for (key,value) in allProducts{
+            allValues.append(value.name)
+        }
+        let data = UserDefaults.standard.array(forKey: "cart") as? [String] ?? []
+        cart = [ProductCard]()
+        for i in data{
+            if allValues.contains(i){
+                cart.append(allProducts[i]!)
+            }
+        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("reloadPrice"), object: nil)
     }
 }
