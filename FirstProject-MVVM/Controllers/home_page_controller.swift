@@ -18,6 +18,7 @@ class HomeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let imgView = UIImageView()
+        imgView.backgroundColor = UIColor(red: 0.33, green: 0.33, blue: 0.5, alpha: 1)
         imgView.kf.setImage(with: URL(string: "https://w0.peakpx.com/wallpaper/51/52/HD-wallpaper-apex-legend-crypto-neon.jpg"))
         imgView.contentMode = .scaleAspectFill
         view.backgroundColor = .white
