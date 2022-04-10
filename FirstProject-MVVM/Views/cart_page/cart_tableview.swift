@@ -38,6 +38,7 @@ class TableView : UITableViewController{
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
+            UserDefaults.standard.setValue(getAllNames(array:cart), forKey: "cart")
         }
         NotificationCenter.default.post(name: NSNotification.Name("reloadPrice"), object: nil)
     }

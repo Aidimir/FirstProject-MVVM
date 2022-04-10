@@ -15,7 +15,7 @@ func getAllValuesInOneArray(dict : Dictionary<String,Array<ProductCard>>)-> Arra
             res.append(i)
         }
     }
-    return res 
+    return res
 }
 func getAllProudctInOneDict(dict : Dictionary<String,Array<ProductCard>>) -> Dictionary<String,ProductCard>{
     var res = [String:ProductCard]()
@@ -48,8 +48,9 @@ func convertToProductData(dict : [String : [String : Any]]) -> [ProductData]{
         let price = value["price"] as? Int
         let shortdescription = value["description"] as? String
         let group = value["group"] as? String
-        res.append(ProductData(name: productName! , images: images, shortDescription: shortdescription ?? "нет информации", price: price ?? 0, group: group))
+        res.append(ProductData(name: productName ?? "нет информации" , images: images, shortDescription: shortdescription ?? "нет информации", price: price ?? 0, group: group))
     }
+    res = res.sorted(by: {$0.name > $1.name})
     return res
 }
 func getNewInstances(array : [ProductCard]) ->[ProductCard]{

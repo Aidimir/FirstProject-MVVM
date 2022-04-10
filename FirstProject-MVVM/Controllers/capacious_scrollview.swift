@@ -73,7 +73,7 @@ class CapaciousScrollView : UIViewController,UIScrollViewDelegate{
         return collections
     }
     private func addBinding(){
-        ViewController.productsArray.bind { array in
+        ProductsViewModel.productsArray.bind { array in
             DispatchQueue.main.async {
                 self.scrollView.removeFromSuperview()
                 self.groups = ProductConstructor.presentData(products: array!)

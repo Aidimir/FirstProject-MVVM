@@ -37,8 +37,7 @@ class CartController : UIViewController {
             make.height.equalToSuperview().multipliedBy(0.8)
         }
         let data = UserDefaults.standard.array(forKey: "cart") as? [String] ?? []
-        var allProductsDict = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: ViewController.productsArray.value!))
-        allProducts = allProductsDict
+        allProducts = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: ProductsViewModel.productsArray.value!))
         var allValues = [String]()
         for (key,value) in allProducts{
             allValues.append(value.name)
@@ -72,6 +71,7 @@ class CartController : UIViewController {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(reloadPriceText), name: NSNotification.Name("reloadPrice"), object: nil)
         title = "Cart"
+        addBinding()
     }
     @objc func reloadPriceText(notification : NSNotification){
         label.text = "К оплате: \(getPriceForAll(productsInCart: cart)) RUB"
@@ -136,5 +136,13 @@ extension CartController : SKPaymentTransactionObserver, SKProductsRequestDelega
         let request = SKProductsRequest(productIdentifiers: ["com.bandle.test"])
         request.delegate = self
         request.start()
+    }
+    func addBinding(){
+        ProductsViewModel.productsArray.bind { array in
+            allProducts = getAllProudctInOneDict(dict: ProductConstructor.presentData(products: array!))
+        }
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("reloadPrice"), object: nil)
+
     }
 }

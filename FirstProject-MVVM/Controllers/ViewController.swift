@@ -3,7 +3,7 @@ import Kingfisher
 import SnapKit
 class ViewController : UIViewController {
     private let spinner = UIActivityIndicatorView()
-    public static var productsArray : Observable<[ProductData]?> = Observable(value: nil)
+    private var viewModel = ProductsViewModel()
     let button : UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(updateValue), for: .touchUpInside)
@@ -19,46 +19,15 @@ class ViewController : UIViewController {
         spinner.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        fetchData()
+        viewModel.setDelegate(delegate: self)
+        updateValue()
     }
     @objc func reloadAll(sender : UIRefreshControl){
         view.subviews.forEach({ $0 != spinner ? $0.removeFromSuperview() : nil})
-        fetchData()
-    }
-    func fetchData(){
-        FirebaseData().getData { dict in
-            if dict != nil{
-                FirebaseData().getPoints { p in
-                    let array = convertToProductData(dict: dict!)
-                    if ViewController.productsArray.value == nil{
-                        ViewController.productsArray.value = array
-                        self.presentProducts(array: array, allPoints: p)
-                    }
-                    ViewController.productsArray.value = array
-                }
-            }
-            else{
-                // some cache stuff will be here
-                self.errorHandler()
-            }
-        }
+        updateValue()
     }
     @objc func updateValue(){
-        FirebaseData().getData { dict in
-            if dict != nil{
-                let array = convertToProductData(dict: dict!)
-                FirebaseData().getPoints { p in
-                    ViewController.productsArray.value = array
-                }
-                print(dict)
-            }
-            else{
-                // some cache stuff will be here
-                ViewController.productsArray.value = nil
-                print("is nil")
-            }
-        }
-        print("update button tapped")
+        ProductsViewModel.updateValue()
     }
 }
 
