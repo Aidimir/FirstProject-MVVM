@@ -7,7 +7,14 @@ var imgArray = [UIImageView(image:  UIImage(systemName: "photo.fill")!),UIImageV
 class HomeViewController : UIViewController {
     private var itemsToShow : [ProductCard]
     private var collectionView : UICollectionView!
+    private let scroll = UIScrollView()
     private let mainScrolls = MainScrollSells(sellsArray: imgArray)
+    private let refreshControl : UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(update), for: .valueChanged)
+        control.tintColor = .white
+        return control
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         let imgView = UIImageView()
@@ -20,14 +27,19 @@ class HomeViewController : UIViewController {
         }
         title = "Home"
         mainScrolls.backgroundColor = .white
-        view.addSubview(mainScrolls)
+        scroll.addSubview(mainScrolls)
         mainScrolls.snp.makeConstraints { make in
-            make.left.right.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.2)
-            make.top.equalTo(view.snp.topMargin)
+            make.left.right.width.equalTo(scroll)
+            make.height.equalTo(scroll).multipliedBy(0.2)
+            make.top.equalTo(scroll)
         }
         setupCollection()
         addBindings()
+        view.addSubview(scroll)
+        scroll.snp.makeConstraints { make in
+            make.left.right.bottom.width.height.equalToSuperview()
+            make.top.equalTo(view.snp.topMargin)
+        }
     }
     init(itemsToShow : [ProductCard]){
         self.itemsToShow = itemsToShow
@@ -38,14 +50,15 @@ class HomeViewController : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     func setupCollection(){
+        scroll.refreshControl = refreshControl
         collectionView = HomeCollection(itemsToShow: itemsToShow)
         collectionView.backgroundColor = .black
-        view.addSubview(collectionView)
+        scroll.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.98)
+            make.centerX.equalTo(scroll)
+            make.width.equalTo(scroll).multipliedBy(0.98)
             make.top.equalTo(mainScrolls.snp.bottom).offset(view.frame.size.height*0.02)
-            make.height.equalToSuperview().dividedBy(2.5)
+            make.height.equalTo(scroll).dividedBy(2.5)
         }
     }
 }
@@ -53,10 +66,14 @@ extension HomeViewController{
     func addBindings(){
         ProductsViewModel.productsArray.bind { array in
             DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
                 self.collectionView.removeFromSuperview()
                 self.itemsToShow = getNewInstances(array: getRandomPos(dict: ProductConstructor.presentData(products: array!)))
                 self.setupCollection()
             }
         }
+    }
+    @objc func update(){
+        NotificationCenter.default.post(name: NSNotification.Name("updateAll"), object: nil)
     }
 }

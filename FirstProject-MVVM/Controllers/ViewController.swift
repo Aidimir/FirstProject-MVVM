@@ -1,15 +1,12 @@
 import UIKit
 import Kingfisher
 import SnapKit
+import BLTNBoard
+
 class ViewController : UIViewController {
     private let spinner = UIActivityIndicatorView()
     private var viewModel = ProductsViewModel()
-    let button : UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(updateValue), for: .touchUpInside)
-        button.backgroundColor = .red
-        return button
-    }()
+    private var boardManager : BLTNItemManager?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(spinner)
@@ -21,13 +18,17 @@ class ViewController : UIViewController {
         }
         viewModel.setDelegate(delegate: self)
         updateValue()
+        NotificationCenter.default.addObserver(self, selector: #selector(showCard), name: NSNotification.Name("showCard"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateValue), name: NSNotification.Name("updateAll"), object: nil)
     }
     @objc func reloadAll(sender : UIRefreshControl){
         view.subviews.forEach({ $0 != spinner ? $0.removeFromSuperview() : nil})
         updateValue()
     }
     @objc func updateValue(){
+        DispatchQueue.main.async {
         ProductsViewModel.updateValue()
+        }
     }
 }
 
@@ -52,11 +53,6 @@ extension ViewController : ProductsPresenterDelegate{
             make.bottom.left.right.width.equalToSuperview()
             make.height.equalToSuperview()
         }
-        view.addSubview(button)
-        button.snp.makeConstraints { make in
-            make.centerX.topMargin.width.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(10)
-        }
     }
     func errorHandler() {
         spinner.removeFromSuperview()
@@ -79,7 +75,7 @@ extension ViewController : ProductsPresenterDelegate{
         }()
         let refreshControl : UIRefreshControl = {
             let control = UIRefreshControl()
-            control.addTarget(self, action: #selector(reloadAll(sender:)), for: .valueChanged)
+            control.addTarget(self, action: #selector(updateValue), for: .valueChanged)
             control.tintColor = .white
             return control
         }()
@@ -98,6 +94,25 @@ extension ViewController : ProductsPresenterDelegate{
         view.addSubview(scroll)
         scroll.snp.makeConstraints { make in
             make.left.right.top.bottom.width.height.equalToSuperview()
+        }
+    }
+}
+
+extension ViewController {
+    @objc func showCard(notification : NSNotification){
+        boardManager = {
+           let item = BLTNPageItem(title: "Что то пошло не так...")
+            item.image = UIImage(named: "errorImage")
+            item.descriptionText = notification.object as? String ?? ""
+            item.actionButtonTitle = "Попробовать подключиться снова"
+            item.actionHandler = { [weak self] _ in
+                self?.updateValue()
+            }
+            return BLTNItemManager(rootItem: item)
+        }()
+        boardManager!.backgroundColor = UIColor(red: 0.46, green: 0.46, blue: 0.46, alpha: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.boardManager!.showBulletin(above: self)
         }
     }
 }

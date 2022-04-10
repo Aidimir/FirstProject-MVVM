@@ -20,12 +20,22 @@ class InsideCollectionView : UICollectionViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl : UIRefreshControl = {
+            let control = UIRefreshControl()
+            control.addTarget(self, action: #selector(update), for: .valueChanged)
+            control.tintColor = .white
+            return control
+        }()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        collectionView.refreshControl = refreshControl
         collectionView.backgroundColor = .black
         collectionView.register(CustomInsideCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.register(NavigationCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.collectionViewLayout = layout
+    }
+    @objc func update(){
+        NotificationCenter.default.post(name: NSNotification.Name("updateAll"), object: nil)
     }
 }
 extension InsideCollectionView : UICollectionViewDelegateFlowLayout{

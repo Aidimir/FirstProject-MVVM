@@ -21,6 +21,12 @@ class CartController : UIViewController {
         label.textAlignment = .left
         return label
     }()
+    let refreshControl : UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(update), for: .valueChanged)
+        control.tintColor = .white
+        return control
+    }()
     var button = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +150,7 @@ extension CartController{
     func setupTableView(){
         tableView.removeFromParent()
         tableView = TableView()
+        tableView.refreshControl = refreshControl
         addChild(tableView)
         tableView.didMove(toParent: self)
         view.backgroundColor = .black
@@ -154,6 +161,7 @@ extension CartController{
         }
     }
     func reloadCart(){
+        refreshControl.endRefreshing()
         var allValues = [String]()
         for (key,value) in allProducts{
             allValues.append(value.name)
@@ -167,5 +175,8 @@ extension CartController{
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name("reloadPrice"), object: nil)
+    }
+    @objc func update(){
+        NotificationCenter.default.post(name: NSNotification.Name("updateAll"), object: nil)
     }
 }

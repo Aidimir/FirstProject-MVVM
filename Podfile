@@ -11,6 +11,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
   pod 'Kingfisher'
 	pod 'SnapKit'
+pod 'BulletinBoard'
+
   # Pods for FirstProject-MVVM
 
   target 'FirstProject-MVVMTests' do

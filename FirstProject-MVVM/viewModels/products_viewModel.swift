@@ -41,11 +41,16 @@ class ProductsViewModel{
                         ProductsViewModel.productsArray.value = array
                     }
                 }
+                if Reachability.isConnectedToNetwork() == false{
+                    NotificationCenter.default.post(name: NSNotification.Name("showCard"), object: "Отсутствует подключение к интернету, попробуйте обновить страницу")
+                }
             }
             else{
                 // some cache stuff will be here
-                ProductsViewModel.productsArray.value = nil
-                self.delegate?.errorHandler()
+                if ProductsViewModel.productsArray.value == nil{
+                    self.delegate?.errorHandler()
+                }
+                NotificationCenter.default.post(name: NSNotification.Name("showCard"), object: "Отсутствует подключение к интернету, попробуйте обновить страницу")
                 print("is nil")
             }
         }
