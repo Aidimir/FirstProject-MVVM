@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 import StoreKit
 import SnapKit
+import BLTNBoard
 
 class CartController : UIViewController {
     var test = [SKProduct]()
     var tableView = TableView()
     var dict : [String:[ProductCard]]
+    private var boardManager : BLTNItemManager?
     var label : UILabel = {
         var label = UILabel()
         label.font = .boldSystemFont(ofSize: 40)
@@ -99,8 +101,15 @@ class CartController : UIViewController {
     }
     @objc func onTap(){
         print("You did tap the PAY button")
-        let payment = SKPayment(product: test[0])
-        SKPaymentQueue.default().add(payment)
+        boardManager = {
+           let item = BLTNPageItem(title: "Что то пошло не так...")
+            item.image = UIImage(named: "errorImage")
+            item.descriptionText = "Тут могла быть робокасса вашего магазина 🤔"
+            return BLTNItemManager(rootItem: item)
+        }()
+        boardManager?.showBulletin(above: self)
+//        let payment = SKPayment(product: test[0])
+//        SKPaymentQueue.default().add(payment)
     }
     init(dict : [String:[ProductCard]]){
         self.dict = dict
